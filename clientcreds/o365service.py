@@ -12,7 +12,7 @@ logger = logging.getLogger('clientcreds')
 
 # Set to False to bypass SSL verification
 # Useful for capturing API calls in Fiddler
-verifySSL = False
+verifySSL = True
 
 # Generic API Sending
 def make_api_call(method, url, token, payload = None):

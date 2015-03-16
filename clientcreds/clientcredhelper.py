@@ -14,15 +14,18 @@ from clientcreds.clientreg import client_registration
 logger = logging.getLogger('clientcreds')
 
 # Constant strings for OAuth2 flow
+# The OAuth authority
+authority = 'https://login.microsoftonline.com'
+
 # The authorize URL that initiates the OAuth2 client credential flow for admin consent
-authorize_url = 'https://login.windows.net/common/oauth2/authorize?{0}'
+authorize_url = '{0}{1}'.format(authority, '/common/oauth2/authorize?{0}')
 
 # The token issuing endpoint
-token_url = 'https://login.windows.net/{0}/oauth2/token'
+token_url = '{0}{1}'.format(authority, '/{0}/oauth2/token')
 
 # Set to False to bypass SSL verification
 # Useful for capturing API calls in Fiddler
-verifySSL = False
+verifySSL = True
 
 # Plugs in client ID and redirect URL to the authorize URL
 # App will call this to get a URL to redirect the user for sign in
