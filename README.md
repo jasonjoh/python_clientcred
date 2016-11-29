@@ -20,7 +20,8 @@ It's assumed that you have Python and Django installed before starting. Windows 
 1. Install the Python-RSA module from the command line: `pip install rsa`
 1. [Register the app in Azure Active Directory](https://github.com/jasonjoh/office365-azure-guides/blob/master/RegisterAnAppInAzure.md). The app should be registered as a web app with a Sign-on URL of "http://127.0.0.1:8000/", and should be given the permission to "Read mail in all mailboxes in the organization", which is available in the "Application Permissions" dropdown.
 1. Configure an X509 certificate for your app following the directions [here](http://blogs.msdn.com/b/exchangedev/archive/2015/01/21/building-demon-or-service-apps-with-office-365-mail-calendar-and-contacts-apis-oauth2-client-credential-flow.aspx).
-1. Extract the private key in RSA format from your certificate and save it to a PEM file. (I used openssl to do this).
+    > If you're using OpenSSL, you can try [these instructions](https://gist.github.com/carlopires/de085999dc69a13efe60). (Thanks to Carlo!)
+1. Extract the private key in RSA format from your certificate and save it to a PEM file. (I used OpenSSL to do this).
     `openssl pkcs12 -in <path to PFX file> -nodes -nocerts -passin pass:<cert password> | openssl rsa -out appcert.pem`
 1. Edit the `.\clientcreds\clientreg.py` file. 
 	1. Copy the client ID for your app obtained during app registration and paste it as the value for the `id` variable. 
