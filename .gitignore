@@ -58,3 +58,8 @@ debug.log
 !/clientcreds/certificates
 /clientcreds/certificates/*
 !/clientcreds/certificates/Get-KeyCredentials.ps1
+
+# Eclipse
+.project
+.pydevproject
+
